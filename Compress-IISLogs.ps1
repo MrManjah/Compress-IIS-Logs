@@ -22,7 +22,7 @@ if (!(Test-Path $ArchiveDir)) {
 # Définition du délai de rétention
 $logLimit = (Get-Date).AddDays(-90)
 
-# Récupération des fichiers plus ancien que le délai de rétention
+# Récupération des fichiers plus anciens que le délai de rétention
 $LogFiles = Get-ChildItem -Path $logDir -Filter *.log -Recurse | Where-Object { $_.LastWriteTime -lt $logLimit }
 Write-Host "Nombre de fichier à archiver $($LogFiles.Count)" -ForegroundColor Green
 
